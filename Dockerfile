@@ -9,9 +9,7 @@ COPY go.mod go.sum ./
 RUN go mod download
 COPY . .
 
-RUN --mount=type=cache,target=/root/.cache/go-build \
-    --mount=type=cache,target=/go/pkg/mod \
-    go build -o mediax
+RUN go build -o mediax
 
 
 # Pre Runtime stage
